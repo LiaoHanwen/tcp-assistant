@@ -17,8 +17,8 @@ class StartThread(threading.Thread):
     def run(self):
         print("accept tcp connection from: " + str(self.addr))
         while(True):
-            message = self.clientSocket.recv()      # receive message
-            print(str(self.addr) + ": " + message)  # print
+            message = self.clientSocket.recv(1024).decode('utf-8')  # receive message
+            print(str(self.addr) + ": " + message)                  # print
 
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
