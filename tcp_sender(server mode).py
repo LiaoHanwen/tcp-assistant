@@ -1,9 +1,12 @@
 import socket
 import threading
+import time
 
 HOST = "127.0.0.1"  # IP for local host
 PORT = 9971         # Listen port
 
+MESSAGE = b'\x00\xff\xff\x00\x00\x63\x00\x14\x00\x00\x00\x03[\xbf\x01\xb4\x10\x00\x00\x03\x0068911237\x00\x00\x00\x00\x00\x00\x0013381030442\x00\x00\x00\x000\x000\x001538129974\x001538129974\x00'
+TIME = 10 # s
 
 # new thread
 class StartThread(threading.Thread):
@@ -17,13 +20,9 @@ class StartThread(threading.Thread):
     def run(self):
         print("accept tcp connection from: " + str(self.addr))
         while(True):
-            message = self.clientSocket.recv(1024)  # receive message
-            if len(message) == 0:
-                print("close tcp connection from: " + str(self.addr))
-                self.clientSocket.close();
-                break;
-            print(str(self.addr) + ": ", end = "")  # print
-            print(message)      # revert to utf-8: message.decode('utf-8')
+            clientSocket.sendall(MESSAGE)
+            print("send message to: " + str(addr))
+            time.sleep(TIME)
 
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
