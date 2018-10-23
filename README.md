@@ -3,10 +3,10 @@
 ## Functions
 - Receive message and print
 - Auto send message
-- input message and send
+- Input message and send
 
 ## tcp_server
-- open a tcp server
+- Open a tcp server
 
 ## tcp_client
-- open a tcp client
+- Open a tcp client

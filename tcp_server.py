@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 # file name: tcp_server.py
 
@@ -7,7 +7,7 @@ import threading
 import time
 
 HOST = "127.0.0.1"  # IP for local host
-PORT = 9971  # Listen port
+PORT = 12345  # Listen port
 
 
 def main():
